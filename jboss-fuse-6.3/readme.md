@@ -1,4 +1,4 @@
-## FUSE 6.3 Docker image
+### FUSE 6.3 Docker image
 
 This project builds a Docker image for [JBoss Fuse](http://www.jboss.org/products/fuse/overview/) and is based on
 the [jboss-fuse/jboss-fuse-docker](https://github.com/jboss-fuse/jboss-fuse-docker) docker image. The original image
