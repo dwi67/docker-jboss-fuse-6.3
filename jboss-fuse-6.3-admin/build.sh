@@ -1,4 +1,4 @@
-DOCKER_IMAGE_NAME=adesso/jboss-fuse-6.3-runner
+DOCKER_IMAGE_NAME=adesso/jboss-fuse-6.3-admin
 DOCKER_IMAGE_VERSION=latest
 
 docker rmi --force=true ${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_VERSION}
