@@ -1,8 +1,8 @@
-# FUSE Docker image
+### FUSE Docker image
 
 This project builds a Docker image for [JBoss Fuse](http://www.jboss.org/products/fuse/overview/) with a default users.properties configuration file.
 
-## Usage
+### Usage
 
 Run the image:
 
@@ -10,7 +10,7 @@ Run the image:
 
 The administration console should be available at [http://localhost:8181/hawtio](http://localhost:8181/hawtio)
 
-## Ports Opened by Fuse
+### Ports Opened by Fuse
 
 You may need to map ports opened by the Fuse container to host ports if you need to access it's services.
 Those ports are:
@@ -33,7 +33,7 @@ If you add the ``-p 8101:8101` to your `docker run` command, then you should be 
 * 5671  - AMQ AMQP over SSL port.
 * 61614 - AMQ STOMP over SSL port.
 
-## Image internals
+### Image internals
 
 This image extends the [`jboss/base-jdk:8`](https://github.com/JBoss-Dockerfiles/base-jdk/tree/jdk8) image which adds the OpenJDK distribution on top of the [`jboss/base`](https://github.com/JBoss-Dockerfiles/base) image. Please refer to the readme.md for selected images for more info.
 
@@ -41,6 +41,6 @@ The server is run as the `jboss` user which has the uid/gid set to `1000`.
 
 Fuse is installed in the `/opt/jboss/jboss-fuse` directory.
 
-## Source
+### Source
 
 The source is [available on GitHub](https://github.com/dwi67/docker-jboss-fuse-6.3).
