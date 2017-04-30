@@ -1,10 +1,10 @@
-# FUSE 6.3 Docker image
+## FUSE 6.3 Docker image
 
 This project builds a Docker image for [JBoss Fuse](http://www.jboss.org/products/fuse/overview/) and is based on
-the [jboss-fuse/jboss-fuse-docker](https://github.com/jboss-fuse/jboss-fuse-docker) docker image.
-The original image doesn't support jboss fuse 6.3 due to several changes to maven repository settings.
+the [jboss-fuse/jboss-fuse-docker](https://github.com/jboss-fuse/jboss-fuse-docker) docker image. The original image
+doesn't support jboss fuse 6.3 due to several changes to maven repository settings.
 
-## Usage
+### Usage
 
 You can then run a Fuse server with the following command:
 
@@ -13,7 +13,7 @@ You can then run a Fuse server with the following command:
 Note that the web console will not be accessible since we have not yet defined users that can log into it
 and have not exposed the web console port on the docker host.
 
-## Extending the image
+### Extending the image
 
 First, create a `users.properties` file that contains your users, passwords, and roles.  For example:
 
@@ -37,7 +37,7 @@ Run your new image:
 
 The administration console should be available at [http://localhost:8181/hawtio](http://localhost:8181/hawtio)
 
-## Ports Opened by Fuse
+### Ports Opened by Fuse
 
 You may need to map ports opened by the Fuse container to host ports if you need to access it's services.
 Those ports are:
@@ -49,7 +49,7 @@ If you add the ``-p 8181:8181` to your `docker run` command, then you should be 
 
 If you add the ``-p 8101:8101` to your `docker run` command, then you should be able to ssh into the Karaf container using a command similar to: `ssh admin@localhost -p 8101`
 
-## Ports used by JBoss AMQ
+### Ports used by JBoss AMQ
 
 * 61616 - AMQ Openwire port.
 * 1883  - AMQ MQTT port.
@@ -60,7 +60,7 @@ If you add the ``-p 8101:8101` to your `docker run` command, then you should be 
 * 5671  - AMQ AMQP over SSL port.
 * 61614 - AMQ STOMP over SSL port.
 
-## Image internals
+### Image internals
 
 This image extends the [`jboss/base-jdk:8`](https://github.com/JBoss-Dockerfiles/base-jdk/tree/jdk8) image which adds the OpenJDK distribution on top of the [`jboss/base`](https://github.com/JBoss-Dockerfiles/base) image. Please refer to the README.md for selected images for more info.
 
@@ -68,6 +68,6 @@ The server is run as the `jboss` user which has the uid/gid set to `1000`.
 
 Fuse is installed in the `/opt/jboss/jboss-fuse` directory.
 
-## Source
+### Source
 
 The source is [available on GitHub](https://github.com/dwi67/docker-jboss-fuse-6.3).
