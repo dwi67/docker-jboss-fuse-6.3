@@ -1,8 +1,8 @@
 # FUSE 6.3 Docker image
 
 This project builds a Docker image for [JBoss Fuse](http://www.jboss.org/products/fuse/overview/) and is based on
-the jboss/jboss-fuse docker image. The original image doesn't support jboss fuse 6.3 due to several changes to
-maven repository settings.
+the (https://github.com/jboss-fuse/jboss-fuse-docker) docker image. The original image doesn't support jboss fuse 6.3
+due to several changes to maven repository settings.
 
 ## Usage
 
@@ -70,4 +70,4 @@ Fuse is installed in the `/opt/jboss/jboss-fuse` directory.
 
 ## Source
 
-The source is [available on GitHub](https://github.com/dwi67/jboss-fuse-docker).
+The source is [available on GitHub](https://github.com/dwi67/docker-jboss-fuse-6.3).
