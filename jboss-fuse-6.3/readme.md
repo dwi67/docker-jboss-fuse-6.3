@@ -23,17 +23,17 @@ First, create a `users.properties` file that contains your users, passwords, and
 
 Then create a Dockerfile with the following content:
 
-    FROM dwi67/jboss-fuse-base
+    FROM dwi67/jboss-fuse-6.3
     COPY users.properties /opt/jboss/jboss-fuse/etc/
     
 
 Then you can build a new Docker image using the following command:
 
-    docker build --tag=dwi67/jboss-fuse-base-admin .
+    docker build --tag=dwi67/jboss-fuse-6.3-admin .
 
 Run your new image:
 
-    docker run -it -p 8181:8181 dwi67/jboss-fuse-base-admin
+    docker run -it -p 8181:8181 dwi67/jboss-fuse-6.3-admin
 
 The administration console should be available at [http://localhost:8181/hawtio](http://localhost:8181/hawtio)
 
