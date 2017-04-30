@@ -6,7 +6,7 @@ This project builds a Docker image for [JBoss Fuse](http://www.jboss.org/product
 
 Run the image:
 
-    docker run -it -p 8181:8181 adesso/jboss-fuse-6.3-admin
+    docker run -it -p 8181:8181 dwi67/jboss-fuse-6.3-admin
 
 The administration console should be available at [http://localhost:8181/hawtio](http://localhost:8181/hawtio)
 
