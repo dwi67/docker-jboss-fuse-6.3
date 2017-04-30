@@ -1,10 +1,10 @@
-## FUSE 6.3 Docker image
+# FUSE 6.3 Docker image
 
 This project builds a Docker image for [JBoss Fuse](http://www.jboss.org/products/fuse/overview/) and is based on
 the [jboss-fuse/jboss-fuse-docker](https://github.com/jboss-fuse/jboss-fuse-docker) docker image. The original image
 doesn't support jboss fuse 6.3 due to several changes to maven repository settings.
 
-### Usage
+# Usage
 
 You can then run a Fuse server with the following command:
 
@@ -13,7 +13,7 @@ You can then run a Fuse server with the following command:
 Note that the web console will not be accessible since we have not yet defined users that can log into it
 and have not exposed the web console port on the docker host.
 
-### Extending the image
+# Extending the image
 
 First, create a `users.properties` file that contains your users, passwords, and roles.  For example:
 
