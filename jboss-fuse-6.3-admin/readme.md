@@ -22,7 +22,7 @@ If you add the ``-p 8181:8181` to your `docker run` command, then you should be 
 
 If you add the ``-p 8101:8101` to your `docker run` command, then you should be able to ssh into the Karaf container using a command similar to: `ssh admin@localhost -p 8101`
 
-## Ports used by JBoss AMQ
+### Ports used by JBoss AMQ
 
 * 61616 - AMQ Openwire port.
 * 1883  - AMQ MQTT port.
