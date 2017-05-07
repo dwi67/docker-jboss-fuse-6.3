@@ -33,6 +33,20 @@ If you add the ``-p 8101:8101` to your `docker run` command, then you should be 
 * 5671  - AMQ AMQP over SSL port.
 * 61614 - AMQ STOMP over SSL port.
 
+### Fabric node name
+
+The root node name can be changed using the following environment variable:
+
+* FUSE_KARAF_NAME - The default node name equals the host name of the docker runtime
+
+### Credentials
+
+Credentials can be set using the following environment variables:
+
+* FABRIC_USER - The fabric admin user (default=admin)
+* FABRIC_PASSWD - The fabric admin password (default=admin)
+* ZOOKEEPER_PASSWD - The zookeeper password (default=FABRIC_PASSWD)
+
 ### Image internals
 
 This image extends the [`jboss/base-jdk:8`](https://github.com/JBoss-Dockerfiles/base-jdk/tree/jdk8) image which adds the OpenJDK distribution on top of the [`jboss/base`](https://github.com/JBoss-Dockerfiles/base) image. Please refer to the readme.md for selected images for more info.

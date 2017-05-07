@@ -1,8 +1,18 @@
 #!/bin/sh
 #
-# We configure the distro, here before it gets imported into docker
-# to reduce the number of UFS layers that are needed for the Docker container.
+# Starts a fabric with the given environment variables
 #
+# Sets the environment variables
+#
+if [ -z $FABRIC_USER ]; then
+    export FABRIC_USER="admin"
+fi
+if [ -z $FABRIC_PASSWD ]; then
+    export FABRIC_USER="admin"
+fi
+if [ -z $ZOOKEEPER_PASSWD ]; then
+    export ZOOKEEPER_PASSWD="${FABRIC_PASSWD}"
+fi
 
 #
 # Run standalone version of fuse
@@ -33,7 +43,7 @@ do
 done
 
 # Create the fabric
-./bin/client "fabric:create --wait-for-provisioning --verbose --clean --bootstrap-timeout 60000 --new-user admin --new-user-password admin --zookeeper-password admin --resolver manualip --manual-ip 127.0.0.1"
+./bin/client "fabric:create --wait-for-provisioning --verbose --clean --bootstrap-timeout 60000 --new-user ${FABRIC_USER} --new-user-password ${FABRIC_PASSWD} --zookeeper-password ${ZOOKEEPER_PASSWD} --resolver manualip --manual-ip 127.0.0.1"
 
 # Wait for fuse to end
 echo Fuse Fabric Server ready for requests
