@@ -1,0 +1,14 @@
+# Use latest dwi67/jboss-fuse-6.3-admin image as the base
+FROM dwi67/jboss-fuse-6.3-admin
+
+MAINTAINER Dieter Wijngaards <dieter.wijngaards@adesso.ch>
+
+USER root
+
+COPY fabric.sh /opt/jboss/jboss-fuse/fabric/fabric.sh
+
+# Rearange rights
+COPY install.sh /opt/jboss/install.sh
+RUN /opt/jboss/install.sh
+
+CMD /opt/jboss/jboss-fuse/fabric/fabric.sh
