@@ -6,6 +6,7 @@ MAINTAINER Dieter Wijngaards <dieter.wijngaards@adesso.ch>
 USER root
 
 COPY fabric.sh /opt/jboss/jboss-fuse/fabric/fabric.sh
+COPY join.sh /opt/jboss/jboss-fuse/fabric/join.sh
 
 # Rearange rights
 COPY install.sh /opt/jboss/install.sh

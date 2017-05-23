@@ -1,0 +1,52 @@
+version: '3'
+services:
+  admin:
+    build: ../jboss-fuse-6.3-fabric
+    ports:
+      - "8181:8181"
+      - "8101:8101"
+    environment:
+      - FUSE_KARAF_NAME=admin
+      - FABRIC_USER=admin
+      - FABRIC_PASSWD=admin
+      - ZOOKEEPER_PASSWD=admin
+  root1:
+    build: ../jboss-fuse-6.3-fabric
+    ports:
+       - "8182:8181"
+       - "8102:8101"
+    environment:
+      - FUSE_KARAF_NAME=root1
+      - FABRIC_SERVER_NAME=admin
+      - ZOOKEEPER_PASSWD=admin
+    entrypoint: /opt/jboss/jboss-fuse/fabric/join.sh
+  root2:
+    build: ../jboss-fuse-6.3-fabric
+    ports:
+       - "8183:8181"
+       - "8103:8101"
+    environment:
+      - FUSE_KARAF_NAME=root2
+      - FABRIC_SERVER_NAME=admin
+      - ZOOKEEPER_PASSWD=admin
+    entrypoint: /opt/jboss/jboss-fuse/fabric/join.sh
+  root3:
+    build: ../jboss-fuse-6.3-fabric
+    ports:
+       - "8184:8181"
+       - "8104:8101"
+    environment:
+      - FUSE_KARAF_NAME=root3
+      - FABRIC_SERVER_NAME=admin
+      - ZOOKEEPER_PASSWD=admin
+    entrypoint: /opt/jboss/jboss-fuse/fabric/join.sh
+  root4:
+    build: ../jboss-fuse-6.3-fabric
+    ports:
+       - "8185:8181"
+       - "8105:8101"
+    environment:
+      - FUSE_KARAF_NAME=root4
+      - FABRIC_SERVER_NAME=admin
+      - ZOOKEEPER_PASSWD=admin
+    entrypoint: /opt/jboss/jboss-fuse/fabric/join.sh

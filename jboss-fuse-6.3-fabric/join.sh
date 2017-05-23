@@ -13,6 +13,9 @@ fi
 if [ -z $ZOOKEEPER_PASSWD ]; then
     export ZOOKEEPER_PASSWD=${FABRIC_PASSWD}
 fi
+if [ -z $FABRIC_SERVER_NAME ]; then
+    export FABRIC_SERVER_NAME=admin
+fi
 
 #
 # Run standalone version of fuse
@@ -20,6 +23,7 @@ fi
 echo "Starting JBoss Fuse"
 ./bin/fuse server & FUSE_SERVER=$!
 
+sleep 200
 #
 # Wait until the container is available to run client commands
 #
@@ -42,8 +46,8 @@ do
 	fi
 done
 
-# Create the fabric
-./bin/client "fabric:create --wait-for-provisioning --verbose --clean --bootstrap-timeout 60000 --new-user ${FABRIC_USER} --new-user-password ${FABRIC_PASSWD} --zookeeper-password ${ZOOKEEPER_PASSWD} --resolver localip"
+# Join the fabric
+./bin/client "fabric:join --zookeeper-password ${ZOOKEEPER_PASSWD} --resolver localip ${FABRIC_SERVER_NAME} ${FUSE_KARAF_NAME}"
 
 # Wait for fuse to end
 echo Fuse Fabric Server ready for requests
