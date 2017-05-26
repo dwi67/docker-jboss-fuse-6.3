@@ -18,7 +18,7 @@ fi
 # Run standalone version of fuse
 #
 echo "Starting JBoss Fuse"
-./bin/fuse server & FUSE_SERVER=$!
+/opt/jboss/jboss-fuse/bin/fuse server & FUSE_SERVER=$!
 
 #
 # Wait until the container is available to run client commands
@@ -27,7 +27,7 @@ count=0
 while :
 do
 	echo "Wait for container"
-	./bin/client "version"; return=$?
+	/opt/jboss/jboss-fuse/bin/client "version"; return=$?
 	if [ $return -eq 0 ]; then
 		sleep 15
 		break
@@ -43,7 +43,7 @@ do
 done
 
 # Create the fabric
-./bin/client "fabric:create --wait-for-provisioning --verbose --clean --bootstrap-timeout 60000 --new-user ${FABRIC_USER} --new-user-password ${FABRIC_PASSWD} --zookeeper-password ${ZOOKEEPER_PASSWD} --resolver localip"
+/opt/jboss/jboss-fuse/bin/client "fabric:create --wait-for-provisioning --verbose --clean --bootstrap-timeout 60000 --new-user ${FABRIC_USER} --new-user-password ${FABRIC_PASSWD} --zookeeper-password ${ZOOKEEPER_PASSWD} --resolver localip"
 
 # Wait for fuse to end
 echo Fuse Fabric Server ready for requests
