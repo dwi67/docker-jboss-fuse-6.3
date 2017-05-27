@@ -17,4 +17,6 @@ VOLUME /opt/jboss/jboss-fuse/tmp
 COPY install.sh /opt/jboss/install.sh
 RUN /opt/jboss/install.sh
 
+USER jboss
+
 CMD /opt/jboss/jboss-fuse/fabric/fabric.sh
