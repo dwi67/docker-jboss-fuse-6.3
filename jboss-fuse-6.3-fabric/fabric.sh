@@ -53,6 +53,9 @@ do
     /opt/jboss/jboss-fuse/bin/client "container-create-ssh --host ${host} --user user --password admin ${host}"
 done
 
+if [ -z $MANAGED_HOSTS ]; then
+    echo Admin server is not startet with managed hosts
+fi
 
 # Wait for fuse to end
 echo Fuse Fabric Server is ready for requests

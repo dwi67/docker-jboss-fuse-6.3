@@ -47,6 +47,28 @@ Credentials can be set using the following environment variables:
 * FABRIC_PASSWD - The fabric admin password (default=admin)
 * ZOOKEEPER_PASSWD - The zookeeper password (default=FABRIC_PASSWD)
 
+### Managed host mode
+
+This image can create managed server via ssh. For this purpose you can use the jboss-fuse-6.3-ssh image as a base for the managed server. This image contains all prerequisites for a remote installation of JBoss Fuse.
+
+To identify the docker instances running the ssh image, the MANAGED_HOSTS environment paramter must be set. Multiple hosts are seperated by commas.
+
+    MANAGED_HOSTS=root1,root2,root3,root4
+
+Will create 4 managed server. These server must be accessible using the managed host name.     
+
+### Joined host mode
+
+It is possible to join a fabric server using the join entry point of this image.
+
+    entrypoint: /opt/jboss/jboss-fuse/fabric/join.sh
+
+To join a fabric server, the following environment variables must be set:ß
+
+* FUSE_KARAF_NAME - The name of the managed server
+* FABRIC_SERVER_NAME - The host name of the fabric server
+* ZOOKEEPER_PASSWD - The zookeeper password, to connect to the fabric server
+
 ### Image internals
 
 This image extends the [`jboss/base-jdk:8`](https://github.com/JBoss-Dockerfiles/base-jdk/tree/jdk8) image which adds the OpenJDK distribution on top of the [`jboss/base`](https://github.com/JBoss-Dockerfiles/base) image. Please refer to the readme.md for selected images for more info.

@@ -1,6 +1,6 @@
 ### FUSE ssh docker image
 
-This project builds a ssh accessible docker image for [JBoss Fuse](http://www.jboss.org/products/fuse/overview/) that can be used to auto create a nanaged server by the admin node.
+This project builds an ssh accessible docker image for [JBoss Fuse](http://www.jboss.org/products/fuse/overview/) that can be used to auto create a managed server by the admin node.
 
 ### Usage
 
