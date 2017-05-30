@@ -8,7 +8,10 @@ if [ -z $FABRIC_USER ]; then
     export FABRIC_USER=admin
 fi
 if [ -z $FABRIC_PASSWD ]; then
-    export FABRIC_USER=admin
+    export FABRIC_PASSWD=admin
+fi
+if [ -z $SSH_PASSWD ]; then
+    export SSH_PASSWD=admin
 fi
 if [ -z $ZOOKEEPER_PASSWD ]; then
     export ZOOKEEPER_PASSWD=${FABRIC_PASSWD}
@@ -50,7 +53,7 @@ echo "Managed hosts " ${MANAGED_HOSTS}
 for host in ${MANAGED_HOSTS//,/ }
 do
     echo "Create managed server " $host
-    /opt/jboss/jboss-fuse/bin/client "container-create-ssh --host ${host} --user user --password admin ${host}"
+    /opt/jboss/jboss-fuse/bin/client "container-create-ssh --host ${host} --user user --password ${SSH_PASSWD} ${host}"
 done
 
 if [ -z $MANAGED_HOSTS ]; then

@@ -63,11 +63,12 @@ It is possible to join a fabric server using the join entry point of this image.
 
     entrypoint: /opt/jboss/jboss-fuse/fabric/join.sh
 
-To join a fabric server, the following environment variables must be set:ß
+To join a fabric server, the following environment variables must be set:
 
 * FUSE_KARAF_NAME - The name of the managed server
 * FABRIC_SERVER_NAME - The host name of the fabric server
 * ZOOKEEPER_PASSWD - The zookeeper password, to connect to the fabric server
+* SSH_PASSWD - The ssh password of the remote host user (user), defaults to admin
 
 ### Image internals
 

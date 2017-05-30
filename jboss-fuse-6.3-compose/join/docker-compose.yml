@@ -1,7 +1,7 @@
 version: '3'
 services:
   admin:
-    build: ../jboss-fuse-6.3-fabric
+    build: ../../jboss-fuse-6.3-fabric
     ports:
       - "8181:8181"
       - "8101:8101"
@@ -11,7 +11,7 @@ services:
       - FABRIC_PASSWD=admin
       - ZOOKEEPER_PASSWD=admin
   root1:
-    build: ../jboss-fuse-6.3-fabric
+    build: ../../jboss-fuse-6.3-fabric
     ports:
        - "8182:8181"
        - "8102:8101"
@@ -21,7 +21,7 @@ services:
       - ZOOKEEPER_PASSWD=admin
     entrypoint: /opt/jboss/jboss-fuse/fabric/join.sh
   root2:
-    build: ../jboss-fuse-6.3-fabric
+    build: ../../jboss-fuse-6.3-fabric
     ports:
        - "8183:8181"
        - "8103:8101"
@@ -31,7 +31,7 @@ services:
       - ZOOKEEPER_PASSWD=admin
     entrypoint: /opt/jboss/jboss-fuse/fabric/join.sh
   root3:
-    build: ../jboss-fuse-6.3-fabric
+    build: ../../jboss-fuse-6.3-fabric
     ports:
        - "8184:8181"
        - "8104:8101"
@@ -41,7 +41,7 @@ services:
       - ZOOKEEPER_PASSWD=admin
     entrypoint: /opt/jboss/jboss-fuse/fabric/join.sh
   root4:
-    build: ../jboss-fuse-6.3-fabric
+    build: ../../jboss-fuse-6.3-fabric
     ports:
        - "8185:8181"
        - "8105:8101"
