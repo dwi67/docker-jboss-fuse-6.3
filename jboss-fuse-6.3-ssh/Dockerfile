@@ -25,9 +25,15 @@ EXPOSE 22
 EXPOSE 8181
 EXPOSE 8101
 
-# Expose the containers
-# VOLUME /home/user/containers
-
 RUN /start.sh
+
+USER user
+
+RUN mkdir /home/user/containers
+
+# Expose the containers
+VOLUME /home/user/containers
+
+USER root
 
 ENTRYPOINT ["/usr/sbin/sshd", "-D"]
