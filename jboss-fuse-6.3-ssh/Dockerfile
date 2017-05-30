@@ -26,7 +26,7 @@ EXPOSE 8181
 EXPOSE 8101
 
 # Expose the containers
-VOLUME /home/user/containers
+# VOLUME /home/user/containers
 
 RUN /start.sh
 
