@@ -45,6 +45,15 @@ done
 # Create the fabric
 /opt/jboss/jboss-fuse/bin/client "fabric:create --wait-for-provisioning --verbose --clean --bootstrap-timeout 60000 --new-user ${FABRIC_USER} --new-user-password ${FABRIC_PASSWD} --zookeeper-password ${ZOOKEEPER_PASSWD} --resolver localip"
 
+# Add managed server using ssh commands
+echo "Managed hosts " ${MANAGED_HOSTS}
+for host in ${MANAGED_HOSTS//,/ }
+do
+    echo "Create managed server " $host
+    /opt/jboss/jboss-fuse/bin/client "container-create-ssh --host ${host} --user user --password admin ${host}"
+done
+
+
 # Wait for fuse to end
-echo Fuse Fabric Server ready for requests
+echo Fuse Fabric Server is ready for requests
 wait $FUSE_SERVER

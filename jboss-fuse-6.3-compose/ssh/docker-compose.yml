@@ -1,0 +1,37 @@
+version: '3'
+services:
+  admin:
+    build: ../jboss-fuse-6.3-fabric
+    ports:
+      - "8181:8181"
+      - "8101:8101"
+    environment:
+      - FUSE_KARAF_NAME=admin
+      - FABRIC_USER=admin
+      - FABRIC_PASSWD=admin
+      - ZOOKEEPER_PASSWD=admin
+      - MANAGED_HOSTS=root1,root2,root3,root4
+  root1:
+    build: ../jboss-fuse-6.3-ssh
+    ports:
+       - "9122:22"
+       - "8191:8181"
+       - "8111:8101"
+  root2:
+    build: ../jboss-fuse-6.3-ssh
+    ports:
+       - "9222:22"
+       - "8192:8181"
+       - "8112:8101"
+  root3:
+    build: ../jboss-fuse-6.3-ssh
+    ports:
+       - "9322:22"
+       - "8193:8181"
+       - "8113:8101"
+  root4:
+    build: ../jboss-fuse-6.3-ssh
+    ports:
+       - "9422:22"
+       - "8194:8181"
+       - "8114:8101"
