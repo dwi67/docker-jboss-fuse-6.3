@@ -7,12 +7,12 @@ USER root
 # Install the ssh server
 RUN yum -y update; yum clean all
 RUN yum -y install openssh-server passwd; yum clean all
-COPY start.sh /start.sh
-RUN mkdir /var/run/sshd
 
 # Install which and curl, referenced by the fabric installation script
-RUN yum -y install which
-RUN yum -y install curl
+RUN yum -y install which; yum -y install curl; yum clean all -y
+
+COPY start.sh /start.sh
+RUN mkdir /var/run/sshd
 
 RUN ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key -N '' 
 

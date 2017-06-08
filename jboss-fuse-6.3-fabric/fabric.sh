@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # Starts a fabric with the given environment variables
 #
@@ -49,11 +49,13 @@ done
 /opt/jboss/jboss-fuse/bin/client "fabric:create --wait-for-provisioning --verbose --clean --bootstrap-timeout 60000 --new-user ${FABRIC_USER} --new-user-password ${FABRIC_PASSWD} --zookeeper-password ${ZOOKEEPER_PASSWD} --resolver localip"
 
 # Add managed server using ssh commands
-echo "Managed hosts " ${MANAGED_HOSTS}
+echo "Managed servers to create" ${MANAGED_HOSTS}
 for host in ${MANAGED_HOSTS//,/ }
 do
-    echo "Create managed server " $host
-    /opt/jboss/jboss-fuse/bin/client "container-create-ssh --host ${host} --user user --password ${SSH_PASSWD} ${host}"
+    hostname=${host^^}
+    servicehost=${hostname}_SERVICE_HOST
+    echo "Create managed server" $host with service hostname ${!servicehost}
+    /opt/jboss/jboss-fuse/bin/client "container-create-ssh --host ${!servicehost} --user user --password ${SSH_PASSWD} ${host}"
 done
 
 if [ -z $MANAGED_HOSTS ]; then

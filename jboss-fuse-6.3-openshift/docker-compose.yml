@@ -1,7 +1,7 @@
-version: '3'
+version: '2'
 services:
   admin:
-    build: ../../jboss-fuse-6.3-fabric
+    image: dwi67/jboss-fuse-6.3-fabric
     ports:
       - "8181:8181"
       - "8101:8101"
@@ -12,30 +12,26 @@ services:
       - ZOOKEEPER_PASSWD=admin
       - SSH_PASSWD=admin
       - MANAGED_HOSTS=root1,root2,root3,root4
-      - ROOT1_SERVICE_HOST=root1
-      - ROOT2_SERVICE_HOST=root2
-      - ROOT3_SERVICE_HOST=root3
-      - ROOT4_SERVICE_HOST=root4
   root1:
-    build: ../../jboss-fuse-6.3-ssh
+    image: dwi67/jboss-fuse-6.3-ssh
     ports:
        - "9122:22"
        - "8191:8181"
        - "8111:8101"
   root2:
-    build: ../../jboss-fuse-6.3-ssh
+    image: dwi67/jboss-fuse-6.3-ssh
     ports:
        - "9222:22"
        - "8192:8181"
        - "8112:8101"
   root3:
-    build: ../../jboss-fuse-6.3-ssh
+    image: dwi67/jboss-fuse-6.3-ssh
     ports:
        - "9322:22"
        - "8193:8181"
        - "8113:8101"
   root4:
-    build: ../../jboss-fuse-6.3-ssh
+    image: dwi67/jboss-fuse-6.3-ssh
     ports:
        - "9422:22"
        - "8194:8181"
