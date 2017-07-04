@@ -6,10 +6,10 @@ This example project composes a [JBoss Fuse](http://www.jboss.org/products/fuse/
 
 Run the cluster:
 
-oc login -u system:admin
-oc adm policy add-cluster-role-to-user cluster-admin admin
-oc adm policy add-scc-to-group anyuid system:authenticated
-oc import docker-compose -f ./docker-compose.yml
+    oc login -u system:admin
+    oc adm policy add-cluster-role-to-user cluster-admin admin
+    oc adm policy add-scc-to-group anyuid system:authenticated
+    oc import docker-compose -f ./docker-compose.yml
 
 The administration console of the fabric server should be available at [http://localhost:8181/hawtio](http://localhost:8181/hawtio)
 
